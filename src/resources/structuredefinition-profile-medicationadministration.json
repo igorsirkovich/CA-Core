@@ -6,7 +6,7 @@
   "name": "MedicationAdministrationProfile",
   "title": "MedicationAdministration Profile",
   "status": "draft",
-  "date": "2019-03-31",
+  "date": "2020-03-05",
   "publisher": "TBD",
   "description": "Proposed constraints and extensions on the MedicationAdministration Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
   "kind": "resource",
@@ -62,8 +62,18 @@
         "mustSupport": true
       },
       {
+        "id": "MedicationAdministration.context",
+        "path": "MedicationAdministration.context",
+        "mustSupport": true
+      },
+      {
         "id": "MedicationAdministration.effective[x]",
         "path": "MedicationAdministration.effective[x]",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.performer",
+        "path": "MedicationAdministration.performer",
         "mustSupport": true
       },
       {

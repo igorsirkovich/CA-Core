@@ -206,6 +206,15 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/profile-immunizationrecommendation"/>
+      </reference>
+      <name value="ImmunizationRecommendation Profile"/>
+      <description value="Proposed constraints and extensions on the ImmunizationRecommendation Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="profiles"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/profile-location"/>
       </reference>
       <name value="Location Profile"/>
@@ -224,15 +233,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/profile-medicationrequest"/>
-      </reference>
-      <name value="MedicationRequest Profile"/>
-      <description value="Proposed constraints and extensions on the MedicationRequest Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles."/>
-      <exampleBoolean value="false"/>
-      <groupingId value="profiles"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/profile-medicationadministration"/>
       </reference>
       <name value="MedicationAdministration Profile"/>
@@ -246,6 +246,15 @@
       </reference>
       <name value="MedicationDispense Profile"/>
       <description value="Proposed constraints and extensions on the MedicationDispense Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="profiles"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/profile-medicationrequest"/>
+      </reference>
+      <name value="MedicationRequest Profile"/>
+      <description value="Proposed constraints and extensions on the MedicationRequest Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles."/>
       <exampleBoolean value="false"/>
       <groupingId value="profiles"/>
     </resource>

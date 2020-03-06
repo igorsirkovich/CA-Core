@@ -6,7 +6,7 @@
   "name": "MedicationDispenseProfile",
   "title": "MedicationDispense Profile",
   "status": "draft",
-  "date": "2020-02-12",
+  "date": "2020-03-05",
   "publisher": "TBD",
   "description": "Proposed constraints and extensions on the MedicationDispense Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
   "kind": "resource",
@@ -51,6 +51,7 @@
       {
         "id": "MedicationDispense.subject",
         "path": "MedicationDispense.subject",
+        "min": "1",
         "type": [
           {
             "code": "Reference",
@@ -69,6 +70,11 @@
       {
         "id": "MedicationDispense.whenPrepared",
         "path": "MedicationDispense.whenPrepared",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.whenHandedOver",
+        "path": "MedicationDispense.whenHandedOver",
         "mustSupport": true
       },
       {

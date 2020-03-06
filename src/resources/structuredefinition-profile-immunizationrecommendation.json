@@ -1,0 +1,89 @@
+{
+    "resourceType": "StructureDefinition",
+    "id": "profile-immunizationrecommendation",
+    "url": "http://hl7.org/fhir/ca/core/StructureDefinition/profile-immunizationrecommendation",
+    "version": "0.0.0",
+    "name": "ImmunizationRecommendationProfile",
+    "title": "ImmunizationRecommendation Profile",
+    "status": "draft",
+    "date": "2020-03-05",
+    "publisher": "TBD",
+    "description": "Proposed constraints and extensions on the ImmunizationRecommendation Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
+    "kind": "resource",
+    "abstract": false,
+    "type": "ImmunizationRecommendation",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation",
+    "derivation": "constraint",
+    "differential": {
+      "element": [
+        {
+          "id": "ImmunizationRecommendation",
+          "path": "ImmunizationRecommendation",
+          "short": "ImmunizationRecommendation Profile",
+          "definition": "The ImmunizationRecommendation Profile is based upon the core FHIR ImmunizationRecommendation Resource"
+        },
+        {
+            "id": "ImmunizationRecommendation.patient",
+            "path": "ImmunizationRecommendation.patient",
+            "type": [
+              {
+                "code": "Reference",
+                "targetProfile": [
+                  "http://hl7.org/fhir/ca/core/StructureDefinition/profile-patient"
+                ]
+              }
+            ],
+            "mustSupport": true
+          },
+          {
+            "id": "ImmunizationRecommendation.date",
+            "path": "ImmunizationRecommendation.date",
+            "mustSupport": true
+          },
+          {
+          "id": "ImmunizationRecommendation.recommendation",
+          "path": "ImmunizationRecommendation.recommendation",
+          "mustSupport": true
+        },
+        {
+          "id": "ImmunizationRecommendation.recommendation.vaccineCode",
+          "path": "ImmunizationRecommendation.recommendation.vaccineCode",
+          "mustSupport": true,
+          "binding": {
+            "strength": "example",
+            "valueSet": "http://hl7.org/fhir/ca/core/ValueSet/vaccinecodes"
+          }
+        },
+        {
+          "id": "ImmunizationRecommendation.recommendation.targetDisease",
+          "path": "ImmunizationRecommendation.recommendation.targetDisease",
+          "mustSupport": true,
+          "binding": {
+            "strength": "example",
+            "valueSet": "http://hl7.org/fhir/ca/core/ValueSet/diseasecodes"
+          }
+        },
+        {
+          "id": "ImmunizationRecommendation.recommendation.forecastStatus",
+          "path": "ImmunizationRecommendation.recommendation.forecastStatus",
+          "mustSupport": true
+        },
+        {
+          "id": "ImmunizationRecommendation.recommendation.dateCriterion",
+          "path": "ImmunizationRecommendation.recommendation.dateCriterion",
+          "mustSupport": true
+        },
+        {
+          "id": "ImmunizationRecommendation.recommendation.dateCriterion.code",
+          "path": "ImmunizationRecommendation.recommendation.dateCriterion.code",
+          "mustSupport": true
+        },
+        {
+          "id": "ImmunizationRecommendation.recommendation.dateCriterion.value",
+          "path": "ImmunizationRecommendation.recommendation.dateCriterion.value",
+          "mustSupport": true
+        }
+      ]
+    }
+  }
+  
