@@ -31,11 +31,14 @@ A hyphen SHOULD NOT be used (example of UNacceptable format: T0L-1K0).
 ### Preferred
 The Practitioner.address MAY have a [Preferred](http://hl7.org/fhir/StructureDefinition/iso21090-preferred) extension. This is the FHIR standard defined extension used as a flag denoting whether parent address item is preferred.
 
-### Qualifications
+### Qualifications & Credentials
+In Canadian context qualifications and credentials are not synonymous. This difference is defined by slices applied to _Practitioner.qualification.code.coding_ element.
 
+Qualification defines a code for the degree or educational rank that the credential specifies and may also apply to an expertise type.
 This profile recommends to use Canadian [QualifiedRoleType](https://tgateway.infoway-inforoute.ca/singlesubset.html?id=2.16.840.1.113883.2.20.3.48) value set as the coded representation of the provider's qualification.
-This value set lists codes for the degree or educational rank that the credential specifies. It may also apply to an Expertise type.
 
+Credential defines a role type that is used to categorize an entity that delivers health care in an expected and professional manner to an entity in need of health care services. 
+It uses Canadian [HealthcareProviderRoleType](https://tgateway.infoway-inforoute.ca/singlesubset.html?id=2.16.840.1.113883.2.20.3.48&versionid=20190813) value set as the coded representation of the provider's credentials.
 
 The binding strength for the Practitioner.qualification.code element is [Preferred](https://www.hl7.org/fhir/terminologies.html#preferred) meaning that implementers are encouraged to draw codes from the specified code system for interoperability purposes but are not required to do so to be considered conformant. 
 

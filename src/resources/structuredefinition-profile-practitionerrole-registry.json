@@ -1,14 +1,14 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "profile-practitionerrole",
-  "url": "http://hl7.org/fhir/ca/core/StructureDefinition/profile-practitionerrole",
+  "id": "profile-practitionerrole-registry",
+  "url": "http://hl7.org/fhir/ca/core/StructureDefinition/profile-practitionerrole-registry",
   "version": "0.0.1",
-  "name": "PractitionerRoleProfile",
-  "title": "PractitionerRole Profile (General)",
+  "name": "PractitionerRoleProfile-Registry",
+  "title": "PractitionerRole Profile (Provider Registry)",
   "status": "draft",
   "date": "2020-03-09",
   "publisher": "Canada Health Infoway",
-  "description": "Proposed constraints and extensions on the PractitionerRole Resource for general use.",
+  "description": "Proposed constraints and extensions on the PractitionerRole Resource for use by Provider Registry systems.",
   "jurisdiction": [
     {
       "coding": [
@@ -23,7 +23,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "PractitionerRole",
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
+  "baseDefinition": "http://hl7.org/fhir/ca/core/StructureDefinition/profile-practitionerrole",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -31,11 +31,61 @@
         "id": "PractitionerRole",
         "path": "PractitionerRole",
         "short": "PractitionerRole Profile",
-        "definition": "The PractitionerRole Profile is based upon the core FHIR PractitionerRole Resource"
+        "definition": "The PractitionerRole Profile is based upon the CA Core FHIR PractitionerRole profile for general use"
+      },
+      {
+        "id": "PractitionerRole.extension",
+        "path": "PractitionerRole.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "PractitionerRole.extension:status",
+        "path": "PractitionerRole.extension",
+        "sliceName": "status",
+        "short": "Role status extension",
+        "definition": "Represents the defined possible states of the Role, as defined by the HL7v3 Role class state machine.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/ext-rolestatus"
+            ]
+          }
+        ],
+        "isModifier": true,
+        "isModifierReason": "This element is labeled as a modifier because the status code may provide additional knowledge about the PractitionerRole resource that modifies its meaning or interpretation"
+      },
+      {
+        "id": "PractitionerRole.extension:statusReason",
+        "path": "PractitionerRole.extension",
+        "sliceName": "statusReason",
+        "short": "Role status reason extension",
+        "definition": "Represents the textual description for the possible states of the Role, as defined by the HL7v3 Role class state machine.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/ext-statusreason"
+            ]
+          }
+        ]
       },
       {
         "id": "PractitionerRole.identifier",
         "path": "PractitionerRole.identifier",
+        "min": 1,
         "mustSupport": true
       },
       {
@@ -51,6 +101,7 @@
       {
         "id": "PractitionerRole.practitioner",
         "path": "PractitionerRole.practitioner",
+        "min": 1,
         "short": "Practitioner that is able to provide the defined services for the organization.",
         "type": [
           {
@@ -76,6 +127,7 @@
       {
         "id": "PractitionerRole.specialty",
         "path": "PractitionerRole.specialty",
+        "min": 1,
         "short": "PractitionerSpecialty",
         "comment": "The binding strength of this element is [Preferred](https://www.hl7.org/fhir/terminologies.html#strength), meaning that codes are encouraged to draw from the PractitionerSpecialty code system for interoperability purposes but are not required to do so to be considered conformant.",
         "mustSupport": true,

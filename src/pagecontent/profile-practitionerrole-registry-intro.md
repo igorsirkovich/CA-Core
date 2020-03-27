@@ -8,7 +8,12 @@ All elements or attributes defined in FHIR have cardinality as part of their def
 
 Most elements in FHIR specification have a minimum cardinality of **0**, which means that they may be missing from a resource when it is exchanged between systems.
 
-In this Canadian Core PractitionerRole Profile all elements are optional, i.e., there is no element with a minimum cardinality of **1**. However, some optional elements (e.g., identifier) have required components that MUST be present if that optional element is provided.
+**Required elements:**
+* an identifier
+* reference to a practitioner
+* speciality 
+
+In addition to that, some optional elements (e.g., PractitionerRole.telecom) have required components that MUST be present if that optional element is provided.
 
 ### Data Absent Reason
 In situations where the minimum cardinality of an element or attribute is **1** and information is missing and the Responder knows the precise reason for the absence of data, Responders SHALL send the reason for the missing information using values (such as [NullFlavor](https://www.hl7.org/fhir/extension-iso21090-nullflavor.html)) from the value set where they exist or using the [DataAbsentReason](http://hl7.org/fhir/StructureDefinition/data-absent-reason) extension.
@@ -24,5 +29,15 @@ Following elements are marked as Must Support in the Canadian Patient profile to
 * contact detail (e.g. a telephone number or an email address)
 * speciality
 
+## Extensions
+This PractitionerRole profile contains optional [RoleStatus]( https://build.fhir.org/ig/scratch-fhir-profiles/CA-Core/extension-ext-rolestatus.html) [modifier extension](https://www.hl7.org/fhir/extensibility.html#modifierExtension) to indicate the possible states of the Role as defined by the [HL7v3 Role]( https://www.hl7.org/fhir/v3/RoleStatus/cs.html) class state machine. 
+
+This extension is labeled as modifier because the status code may provide additional knowledge about the PractitionerRole resource that modifies its meaning or interpretation.
+
+In conjunction to the RoleStatus extension, this PractitionerRole profile includes an optional [StatusReason]( https://build.fhir.org/ig/scratch-fhir-profiles/CA-Core/extension-ext-statusreason.html) extension to provides a textual description for the status.
+
+Note: Role status effective from/to dates go to _PractitionerRole.period_ element.
+
 ## Usage Note
-This PractitionerRole profile is intended for general use, e.g. to be included into a Bundle along with the Practitioner resource.
+This PractitionerRole profile is intended to provide a foundation for a central or distributed Provider or Healthcare Directory. 
+Additional work flow components and elements may be required for a particular implementation.

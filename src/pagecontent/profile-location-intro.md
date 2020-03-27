@@ -1,11 +1,22 @@
-<!--- Text entered into this file will appear at the top of the profiles page before the Formal Views of the profile content. -->
+# CA Core Location Profile
+This Location profile sets minimum expectations for the Location resource to record, search and fetch details and position information for a physical place where services are provided.
 
-This profile was generated from [HL7 StructureDefinition](https://www.hl7.org/fhir/location.profile.json) on 2019-03-28 and constrained during a review of US Core against Canadian sources.
+This profile defines core localisation concepts for use in a Canadian context.
 
-Key differences from [USCoreR4 Location](https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-location.html):
-- Added extension for Service Language (ON PPR has a Location Language element, added ext_servicelanguage to support requirement more generally)
+## Mandatory Data Elements
+All elements or attributes defined in FHIR have cardinality as part of their definition - a minimum number of required appearances and a maximum number.
 
-**Note:** Location Identifier 
+Most elements in FHIR specification have a minimum cardinality of 0, which means that they may be missing from a resource when it is exchanged between systems. 
 
-Currently, there is no consensus or requirement for pan-Canadian method to identify a location using a business identifier. Location.identifier will remain unsliced until a requirement or rationale is put forth that supports the need to have unique constraints determined by the business identifier.
+In this Canadian Core Location Profile all elements are optional, i.e., there is no element with a minimum cardinality of 1. However, some optional elements (e.g., identifier) have required components that MUST be present if that optional element is provided.
+
+## Must Support Data Elements
+Some elements are labeled as MustSupport meaning that implementations that produce or consume resources SHALL provide "support" for the element in some meaningful way (see [Must Support](https://build.fhir.org/ig/scratch-fhir-profiles/CA-Core/general-guidance.html#must-support) definition).
+
+Following elements are marked as Must Support in the Canadian Location profile to aid record matching in databases with many pediatric records.
+
+**Must Support elements:**
+* an identifier
+* a location name
+* contact detail (e.g. a telephone number or an email address)
 

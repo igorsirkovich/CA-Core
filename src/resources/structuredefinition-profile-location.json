@@ -1,122 +1,64 @@
 {
-    "resourceType": "StructureDefinition",
-    "id": "profile-location",
-    "url": "http://hl7.org/fhir/ca/core/StructureDefinition/profile-location",
-    "version": "0.0.0",
-    "name": "LocationProfile",
-    "title": "Location Profile",
-    "status": "draft",
-    "date": "2019-03-28",
-    "publisher": "TBD",
-    "description": "Proposed constraints and extensions on the Location Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
-    "kind": "resource",
-    "abstract": false,
-    "type": "Location",
-    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Location",
-    "derivation": "constraint",
-    "differential": {
-        "element": [
-            {
-                "id": "Location",
-                "path": "Location",
-                "short": "Location Profile",
-                "definition": "The Location Profile is based upon the core FHIR Location Resource"
-            },
-            {
-                "id": "Location.extension:servicelanguage",
-                "path": "Location.extension",
-                "sliceName": "communication",
-                "type": [
-                    {
-                        "code": "Extension",
-                        "profile": [
-                            "http://hl7.org/fhir/ca/core/StructureDefinition/ext-servicelanguage"
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "Location.identifier",
-                "path": "Location.identifier"
-            },
-            {
-                "id": "Location.identifier.type",
-                "path": "Location.identifier.type",
-                "example": [
-                  {
-                    "label": "Pattern",
-                    "valueCodeableConcept": {
-                      "coding": [
-                        {
-                          "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                          "code": "PRN"
-                        }
-                      ]
-                    }
-                  }
-                ]            },
-            {
-                "id": "Location.identifier.system",
-                "path": "Location.identifier.system",
-                "short": "Naming systems used to uniquely identify health care providers within a Jurisditional Provider Registry.",
-                "min": 1,
-                "example": [
-                  {
-                    "label": "(Ontario)",
-                    "valueUri": "https://fhir.infoway-inforoute.ca/NamingSystem/ca-on-provider-upi"
-                  }
-                ],
-                "mustSupport": true
-            },
-            {
-                "id": "Location.identifier:PRN.value",
-                "path": "Location.identifier.value",
-                "min": 1,
-                "mustSupport": true,
-                "isModifier": false
-            },
-            {
-                "id": "Location.status",
-                "path": "Location.status",
-                "mustSupport": true
-            },
-            {
-                "id": "Location.name",
-                "path": "Location.name",
-                "min": 1,
-                "mustSupport": true
-            },
-            {
-                "id": "Location.type",
-                "path": "Location.type",
-                "short": "Location Type",
-                "min": 1,
-                "mustSupport": true
-            },
-            {
-                "id": "Location.telecom",
-                "path": "Location.telecom",
-                "mustSupport": true
-            },
-            {
-                "id": "Location.address",
-                "path": "Location.address",
-                "short": "Physical location",
-                "mustSupport": true
-            },
-            {
-                "id": "Location.managingOrganization",
-                "path": "Location.managingOrganization",
-                "mustSupport": true,
-                "type": [
-                    {
-                        "code": "Reference",
-                        "targetProfile": [
-                            "http://hl7.org/fhir/ca/core/StructureDefinition/profile-organization"
-                        ]
-                    }
-                ]
-            }
-        ]
+  "resourceType": "StructureDefinition",
+  "id": "profile-location",
+  "url": "http://hl7.org/fhir/ca/core/StructureDefinition/profile-location",
+  "version": "0.0.1",
+  "name": "LocationProfile",
+  "title": "Location Profile",
+  "status": "draft",
+  "date": "2020-03-16",
+  "publisher": "Canada Health Infoway",
+  "description": "Proposed constraints and extensions on the Location resource",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "CA",
+          "display": "Canada"
+        }
+      ]
     }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Location",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Location",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Location.extension:servicelanguage",
+        "path": "Location.extension",
+        "sliceName": "communication",
+        "short": "Languages used to provide services",
+        "definition": "Indentifies languages that services are provided in at the location.",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/ext-servicelanguage"
+            ]
+          }
+        ],
+        "isModifier": false,
+        "mustSupport": false
+      }, {
+        "id": "Location.identifier",
+        "path": "Location.identifier",
+        "mustSupport": true
+      }, {
+        "id": "Location.name",
+        "path": "Location.name",
+        "mustSupport": true
+      }, {
+        "id": "Location.telecom",
+        "path": "Location.telecom",
+        "mustSupport": true
+      }, {
+        "id": "Location.address",
+        "path": "Location.address"
+      }
+    ]
+  }
 }

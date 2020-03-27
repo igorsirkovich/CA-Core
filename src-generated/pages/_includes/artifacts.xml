@@ -74,6 +74,13 @@
 </tr>
 <tr>
 <td style="column-width:30%">
+<a href="profile-immunizationrecommendation.html">
+                        •  ImmunizationRecommendation Profile</a>
+</td>
+<td>Proposed constraints and extensions on the ImmunizationRecommendation Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.</td>
+</tr>
+<tr>
+<td style="column-width:30%">
 <a href="profile-location.html">
                         •  Location Profile</a>
 </td>
@@ -88,13 +95,6 @@
 </tr>
 <tr>
 <td style="column-width:30%">
-<a href="profile-medicationrequest.html">
-                        •  MedicationRequest Profile</a>
-</td>
-<td>Proposed constraints and extensions on the MedicationRequest Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.</td>
-</tr>
-<tr>
-<td style="column-width:30%">
 <a href="profile-medicationadministration.html">
                         •  MedicationAdministration Profile</a>
 </td>
@@ -106,6 +106,13 @@
                         •  MedicationDispense Profile</a>
 </td>
 <td>Proposed constraints and extensions on the MedicationDispense Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.</td>
+</tr>
+<tr>
+<td style="column-width:30%">
+<a href="profile-medicationrequest.html">
+                        •  MedicationRequest Profile</a>
+</td>
+<td>Proposed constraints and extensions on the MedicationRequest Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.</td>
 </tr>
 <tr>
 <td style="column-width:30%">
@@ -127,13 +134,6 @@
                         •  Organization Profile</a>
 </td>
 <td>Proposed constraints and extensions on the Organization Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.</td>
-</tr>
-<tr>
-<td style="column-width:30%">
-<a href="profile-organizationaffiliation.html">
-                        •  OrganizationAffiliation Profile</a>
-</td>
-<td>Proposed constraints and extensions on the OrganizationAffiliation Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.</td>
 </tr>
 <tr>
 <td style="column-width:30%">
@@ -173,9 +173,16 @@
 <tr>
 <td style="column-width:30%">
 <a href="profile-practitionerrole.html">
-                        •  PractitionerRole Profile</a>
+                        •  PractitionerRole Profile (General)</a>
 </td>
-<td>Proposed constraints and extensions on the PractitionerRole Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.</td>
+<td>Proposed constraints and extensions on the PractitionerRole Resource for general use.</td>
+</tr>
+<tr>
+<td style="column-width:30%">
+<a href="profile-practitionerrole-registry.html">
+                        •  PractitionerRole Profile (Provider Registry)</a>
+</td>
+<td>Proposed constraints and extensions on the PractitionerRole Resource for use by Provider Registry systems.</td>
 </tr>
 <tr>
 <td style="column-width:30%">
@@ -258,10 +265,24 @@
 </tr>
 <tr>
 <td style="column-width:30%">
+<a href="extension-ext-rolestatus.html">
+                        •  Role Status</a>
+</td>
+<td>Represents the status of the Role, as defined by the HL7v3 Role class state machine.</td>
+</tr>
+<tr>
+<td style="column-width:30%">
 <a href="extension-ext-servicelanguage.html">
                         •  Service Language</a>
 </td>
 <td>Indentifies languages that that services are provided in.</td>
+</tr>
+<tr>
+<td style="column-width:30%">
+<a href="extension-ext-statusreason.html">
+                        •  Status Reason</a>
+</td>
+<td>Provides a textual description (reason) for a status.</td>
 </tr>
 </tbody>
 </table>

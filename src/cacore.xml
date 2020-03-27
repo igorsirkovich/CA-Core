@@ -116,10 +116,28 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/ext-rolestatus"/>
+      </reference>
+      <name value="Role Status"/>
+      <description value="Represents the status of the Role, as defined by the HL7v3 Role class state machine."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="extensions"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/ext-servicelanguage"/>
       </reference>
       <name value="Service Language"/>
       <description value="Indentifies languages that that services are provided in."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="extensions"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ext-statusreason"/>
+      </reference>
+      <name value="Status Reason"/>
+      <description value="Provides a textual description (reason) for a status."/>
       <exampleBoolean value="false"/>
       <groupingId value="extensions"/>
     </resource>
@@ -285,7 +303,7 @@
       <exampleBoolean value="false"/>
       <groupingId value="profiles"/>
     </resource>
-    <resource>
+    <!--    <resource>
       <reference>
         <reference value="StructureDefinition/profile-organizationaffiliation"/>
       </reference>
@@ -293,7 +311,7 @@
       <description value="Proposed constraints and extensions on the OrganizationAffiliation Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles."/>
       <exampleBoolean value="false"/>
       <groupingId value="profiles"/>
-    </resource>
+    </resource> -->
     <resource>
       <reference>
         <reference value="StructureDefinition/profile-patient"/>
@@ -343,8 +361,17 @@
       <reference>
         <reference value="StructureDefinition/profile-practitionerrole"/>
       </reference>
-      <name value="PractitionerRole Profile"/>
-      <description value="Proposed constraints and extensions on the PractitionerRole Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles."/>
+      <name value="PractitionerRole Profile (General)"/>
+      <description value="Proposed constraints and extensions on the PractitionerRole Resource for general use."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="profiles"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/profile-practitionerrole-registry"/>
+      </reference>
+      <name value="PractitionerRole Profile (Provider Registry)"/>
+      <description value="Proposed constraints and extensions on the PractitionerRole Resource for use by Provider Registry systems."/>
       <exampleBoolean value="false"/>
       <groupingId value="profiles"/>
     </resource>

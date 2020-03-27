@@ -219,7 +219,41 @@
       "profile-json": "extension-{{[id]}}.profile.json.html",
       "profile-ttl": "extension-{{[id]}}.profile.ttl.html"
     },
+    "StructureDefinition/ext-rolestatus":{
+      "template-base": "../framework/templates/template-ext.html",
+      "template-defns": "../framework/templates/template-ext-definitions.html",
+      "template-mappings": "../framework/templates/template-ext-mappings.html",
+      "template-examples": "",
+      "template-profile-xml": "../framework/templates/template-ext-xml.html",
+      "template-profile-json": "../framework/templates/template-ext-json.html",
+      "template-profile-ttl": "../framework/templates/template-ext-ttl.html",
+      "template-format": "",
+      "base": "extension-{{[id]}}.html",
+      "defns": "extension-{{[id]}}-definitions.html",
+      "mappings": "extension-{{[id]}}-mappings.html",
+      "examples": "extension-{{[id]}}-examples.html",
+      "profile-xml": "extension-{{[id]}}.profile.xml.html",
+      "profile-json": "extension-{{[id]}}.profile.json.html",
+      "profile-ttl": "extension-{{[id]}}.profile.ttl.html"
+    },
     "StructureDefinition/ext-servicelanguage":{
+      "template-base": "../framework/templates/template-ext.html",
+      "template-defns": "../framework/templates/template-ext-definitions.html",
+      "template-mappings": "../framework/templates/template-ext-mappings.html",
+      "template-examples": "",
+      "template-profile-xml": "../framework/templates/template-ext-xml.html",
+      "template-profile-json": "../framework/templates/template-ext-json.html",
+      "template-profile-ttl": "../framework/templates/template-ext-ttl.html",
+      "template-format": "",
+      "base": "extension-{{[id]}}.html",
+      "defns": "extension-{{[id]}}-definitions.html",
+      "mappings": "extension-{{[id]}}-mappings.html",
+      "examples": "extension-{{[id]}}-examples.html",
+      "profile-xml": "extension-{{[id]}}.profile.xml.html",
+      "profile-json": "extension-{{[id]}}.profile.json.html",
+      "profile-ttl": "extension-{{[id]}}.profile.ttl.html"
+    },
+    "StructureDefinition/ext-statusreason":{
       "template-base": "../framework/templates/template-ext.html",
       "template-defns": "../framework/templates/template-ext-definitions.html",
       "template-mappings": "../framework/templates/template-ext-mappings.html",
@@ -254,23 +288,23 @@
     },
     "StructureDefinition/profile-immunization":{
     },
+    "StructureDefinition/profile-immunizationrecommendation":{
+    },
     "StructureDefinition/profile-location":{
     },
     "StructureDefinition/profile-medication":{
     },
-    "StructureDefinition/profile-medicationrequest":{
-    },
     "StructureDefinition/profile-medicationadministration":{
     },
     "StructureDefinition/profile-medicationdispense":{
+    },
+    "StructureDefinition/profile-medicationrequest":{
     },
     "StructureDefinition/profile-medicationstatement":{
     },
     "StructureDefinition/profile-observation":{
     },
     "StructureDefinition/profile-organization":{
-    },
-    "StructureDefinition/profile-organizationaffiliation":{
     },
     "StructureDefinition/profile-patient":{
     },
@@ -283,6 +317,8 @@
     "StructureDefinition/profile-practitioner-registry":{
     },
     "StructureDefinition/profile-practitionerrole":{
+    },
+    "StructureDefinition/profile-practitionerrole-registry":{
     },
     "StructureDefinition/profile-procedure":{
     },
