@@ -2,11 +2,11 @@
   "resourceType": "StructureDefinition",
   "id": "profile-immunization",
   "url": "http://hl7.org/fhir/ca/core/StructureDefinition/profile-immunization",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "name": "ImmunizationProfile",
   "title": "Immunization Profile",
   "status": "draft",
-  "date": "2019-03-31",
+  "date": "2020-03-26",
   "publisher": "TBD",
   "description": "Proposed constraints and extensions on the Immunization Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
   "kind": "resource",
@@ -36,10 +36,39 @@
       {
         "id": "Immunization.vaccineCode",
         "path": "Immunization.vaccineCode",
-        "mustSupport": true,
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.vaccineCode.coding",
+        "path": "Immunization.vaccineCode.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:Generic",
+        "path": "Immunization.vaccineCode.coding",
+        "sliceName": "Generic",
+        "min": 1,
         "binding": {
-          "strength": "example",
-          "valueSet": "http://hl7.org/fhir/ca/core/ValueSet/vaccinecodes"
+          "strength": "preferred",
+          "valueSet": "https://cvc.canimmunize.ca/v3/ValueSet/Generic"
+        }
+      },
+      {
+        "id": "Immunization.vaccineCode.coding:Tradename",
+        "path": "Immunization.vaccineCode.coding",
+        "sliceName": "Tradename",
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "https://cvc.canimmunize.ca/v3/ValueSet/Tradename"
         }
       },
       {
@@ -54,6 +83,18 @@
           }
         ],
         "mustSupport": true
+      },
+      {
+        "id": "Immunization.encounter",
+        "path": "Immunization.encounter",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-encounter"
+            ]
+          }
+        ]
       },
       {
         "id": "Immunization.occurrence[x]:occurrenceDateTime",
@@ -89,6 +130,15 @@
         "mustSupport": true
       },
       {
+        "id": "Immunization.reportOrigin",
+        "path": "Immunization.reportOrigin",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "https://cvc.canimmunize.ca/v3/ValueSet/RepSource"
+        }
+      },
+      {
         "id": "Immunization.location",
         "path": "Immunization.location",
         "type": [
@@ -99,6 +149,105 @@
             ]
           }
         ]
+      },
+      {
+        "id": "Immunization.manufacturer",
+        "path": "Immunization.manufacturer",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Immunization.site",
+        "path": "Immunization.site",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "https://cvc.canimmunize.ca/v3/ValueSet/AnatomicalSite"
+        }
+      },
+      {
+        "id": "Immunization.route",
+        "path": "Immunization.route",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "https://cvc.canimmunize.ca/v3/ValueSet/RouteOfAdmin"
+        }
+      },
+      {
+        "id": "Immunization.performer.function",
+        "path": "Immunization.performer.function",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.performer.actor",
+        "path": "Immunization.performer.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-practitioner",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-practitionerrole",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.reasonReference",
+        "path": "Immunization.reasonReference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-condition",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-observation",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-diagnosticreport"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.reaction.detail",
+        "path": "Immunization.reaction.detail",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-observation"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Immunization.protocolApplied.authority",
+        "path": "Immunization.protocolApplied.authority",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Immunization.protocolApplied.targetDisease",
+        "path": "Immunization.protocolApplied.targetDisease",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "https://cvc.canimmunize.ca/v3/ValueSet/Disease"
+        }
       }
     ]
   }
