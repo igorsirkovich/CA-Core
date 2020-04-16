@@ -8,7 +8,7 @@
   "status": "draft",
   "date": "2019-03-31",
   "publisher": "TBD",
-  "description": "Proposed constraints and extensions on the MedicationStatement Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
+  "description": "Proposed constraints and extensions on the MedicationStatement resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
   "kind": "resource",
   "abstract": false,
   "type": "MedicationStatement",
@@ -21,6 +21,36 @@
         "path": "MedicationStatement",
         "short": "MedicationStatement Profile",
         "definition": "The MedicationStatement Profile is based upon the core FHIR MedicationStatement Resource"
+      },
+      {
+        "id": "MedicationStatement.basedOn",
+        "path": "MedicationStatement.basedOn",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-medicationrequest",
+              "http://hl7.org/fhir/StructureDefinition/CarePlan",
+              "http://hl7.org/fhir/StructureDefinition/ServiceRequest"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationStatement.partOf",
+        "path": "MedicationStatement.partOf",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-medicationadministration",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-medicationdispense",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-medicationstatement",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-procedure",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-observation"
+            ]
+          }
+        ]
       },
       {
         "id": "MedicationStatement.status",
@@ -62,6 +92,19 @@
         "mustSupport": true
       },
       {
+        "id": "MedicationStatement.context",
+        "path": "MedicationStatement.context",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-encounter",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-episodeofcare"
+            ]
+          }
+        ]
+      },
+       {
         "id": "MedicationStatement.effective[x]",
         "path": "MedicationStatement.effective[x]",
         "mustSupport": true
@@ -104,6 +147,20 @@
           }
         ],
         "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.reasonReference",
+        "path": "MedicationStatement.reasonReference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-condition",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-observation",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-diagnosticreport"
+            ]
+          }
+        ]
       },
       {
         "id": "MedicationStatement.dosage",

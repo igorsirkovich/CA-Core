@@ -8,7 +8,7 @@
   "status": "draft",
   "date": "2020-03-05",
   "publisher": "TBD",
-  "description": "Proposed constraints and extensions on the MedicationDispense Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
+  "description": "Proposed constraints and extensions on the MedicationDispense resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
   "kind": "resource",
   "abstract": false,
   "type": "MedicationDispense",
@@ -21,6 +21,18 @@
         "path": "MedicationDispense",
         "short": "MedicationDispense Profile",
         "definition": "The Canadian Core MedicationDispense Profile is based upon the core FHIR MedicationDispense Resource"
+      },
+      {
+        "id": "MedicationDispense.partOf",
+        "path": "MedicationDispense.partOf",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-procedure"
+            ]
+          }
+        ]
       },
       {
         "id": "MedicationDispense.status",
@@ -63,6 +75,61 @@
         "mustSupport": true
       },
       {
+        "id": "MedicationDispense.context",
+        "path": "MedicationDispense.context",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-encounter",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-episodeofcare"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.performer.actor",
+        "path": "MedicationDispense.performer.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-practitioner",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-practitionerrole",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-organization",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-patient",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-device",
+              "http://hl7.org/fhir/StructureDefinition/RelatedPerson"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.location",
+        "path": "MedicationDispense.location",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-location"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.authorizingPrescription",
+        "path": "MedicationDispense.authorizingPrescription",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-medicationrequest"
+            ]
+          }
+        ]
+      },
+      {
         "id": "MedicationDispense.quantity",
         "path": "MedicationDispense.quantity",
         "mustSupport": true
@@ -78,6 +145,31 @@
         "mustSupport": true
       },
       {
+        "id": "MedicationDispense.destination",
+        "path": "MedicationDispense.destination",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-location"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationDispense.receiver",
+        "path": "MedicationDispense.receiver",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-patient",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-practitioner"
+            ]
+          }
+        ]
+      },
+      {
         "id": "MedicationDispense.dosageInstruction",
         "path": "MedicationDispense.dosageInstruction",
         "mustSupport": true
@@ -86,6 +178,19 @@
         "id": "MedicationDispense.dosageInstruction.text",
         "path": "MedicationDispense.dosageInstruction.text",
         "mustSupport": true
+      },
+      {
+        "id": "MedicationDispense.substitution.responsibleParty",
+        "path": "MedicationDispense.substitution.responsibleParty",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-practitioner",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-practitionerrole"
+            ]
+          }
+        ]
       }
     ]
   }

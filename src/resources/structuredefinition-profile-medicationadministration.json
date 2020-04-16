@@ -8,7 +8,7 @@
   "status": "draft",
   "date": "2020-03-05",
   "publisher": "TBD",
-  "description": "Proposed constraints and extensions on the MedicationAdministration Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
+  "description": "Proposed constraints and extensions on the MedicationAdministration resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
   "kind": "resource",
   "abstract": false,
   "type": "MedicationAdministration",
@@ -21,6 +21,19 @@
         "path": "MedicationAdministration",
         "short": "MedicationAdministration Profile",
         "definition": "The MedicationAdministration Profile is based upon the core FHIR MedicationAdministration Resource"
+      },
+      {
+        "id": "MedicationAdministration.partOf",
+        "path": "MedicationAdministration.partOf",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-medicationadministration",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-procedure"
+            ]
+          }
+        ]
       },
       {
         "id": "MedicationAdministration.status",
@@ -64,6 +77,15 @@
       {
         "id": "MedicationAdministration.context",
         "path": "MedicationAdministration.context",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-encounter",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-episodeofcare"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -92,6 +114,44 @@
           }
         ],
         "mustSupport": true
+      },
+      {
+        "id": "MedicationAdministration.reasonReference",
+        "path": "MedicationAdministration.reasonReference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-condition",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-observation",
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-diagnosticreport"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationAdministration.request",
+        "path": "MedicationAdministration.request",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-medicationrequest"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MedicationAdministration.device",
+        "path": "MedicationAdministration.device",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-device"
+            ]
+          }
+        ]
       },
       {
         "id": "MedicationAdministration.dosage",

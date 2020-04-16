@@ -8,7 +8,7 @@
   "status": "draft",
   "date": "2019-03-31",
   "publisher": "TBD",
-  "description": "Proposed constraints and extensions on the Medication Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
+  "description": "Proposed constraints and extensions on the Medication resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
   "kind": "resource",
   "abstract": false,
   "type": "Medication",
@@ -56,6 +56,18 @@
         "path": "Medication.code.text",
         "comment": "Usage Notes: either text or at least one coding or both have to be present",
         "mustSupport": true
+      },
+      {
+        "id": "Medication.manufacturer",
+        "path": "Medication.manufacturer",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-organization"
+            ]
+          }
+        ]
       },
       {
         "id": "Medication.form",

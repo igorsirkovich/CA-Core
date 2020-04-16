@@ -8,7 +8,7 @@
     "status": "draft",
     "date": "2020-03-26",
     "publisher": "TBD",
-    "description": "Proposed constraints and extensions on the ImmunizationRecommendation Resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
+    "description": "Proposed constraints and extensions on the ImmunizationRecommendation resource.  Generated as a first step toward creating a set of Canadian Core FHIR profiles.",
     "kind": "resource",
     "abstract": false,
     "type": "ImmunizationRecommendation",
@@ -60,6 +60,7 @@
         {
           "id": "ImmunizationRecommendation.recommendation.vaccineCode",
           "path": "ImmunizationRecommendation.recommendation.vaccineCode",
+          "comment": "The assumption is that ImmunizationRecommendation (forecast) is always on the level of a generic vaccine code and/or target disease. TBD: to confirm that there is no use case when an ImmunizationRecommendation needs to be on the vaccine tradename level (e.g. 2nd dose of a vaccine with the same or different tradename.",
           "mustSupport": true,
           "binding": {
             "strength": "preferred",
@@ -78,7 +79,11 @@
         {
           "id": "ImmunizationRecommendation.recommendation.forecastStatus",
           "path": "ImmunizationRecommendation.recommendation.forecastStatus",
-          "mustSupport": true
+          "mustSupport": true,
+          "binding": {
+            "strength": "preferred",
+            "valueSet": "https://cvc.canimmunize.ca/v3/ValueSet/ForecastStatus"
+          }
         },
         {
           "id": "ImmunizationRecommendation.recommendation.dateCriterion",
@@ -96,8 +101,8 @@
           "mustSupport": true
         },
         {
-          "id": "ImmunizationRecommendation.supportingImmunization",
-          "path": "ImmunizationRecommendation.supportingImmunization",
+          "id": "ImmunizationRecommendation.recommendation.supportingImmunization",
+          "path": "ImmunizationRecommendation.recommendation.supportingImmunization",
           "type": [
             {
               "code": "Reference",
