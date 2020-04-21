@@ -82,7 +82,7 @@
             "code": "Reference",
             "targetProfile" : [
               "http://hl7.org/fhir/ca/core/StructureDefinition/profile-encounter",
-              "http://hl7.org/fhir/ca/core/StructureDefinition/profile-episodeofcare"
+              "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"
             ]
           }
         ],

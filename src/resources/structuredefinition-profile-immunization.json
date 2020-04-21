@@ -30,7 +30,7 @@
       {
         "id": "Immunization.statusReason",
         "path": "Immunization.statusReason",
-        "comment": "A reason should be provided if the status is \"not-done\".",
+        "comment": "CA Core Usage Notes: a reason should be provided if the status is \"not-done\".",
         "mustSupport": true
       },
       {
@@ -54,15 +54,15 @@
           ],
           "rules": "open"
         },
-        "comment": "For immunization submission, a server should accept either generic or tradename code or both. For immunization retireval, the recommendation is to return a generic code whenever it's known to the server or can be derived from the tradename code.",
+        "comment": "CA Core Usage Notes: for immunization submission, a server should accept any code a client is able to provide: a Generic code, a Tradename code or both. For immunization retireval, a Trade name is optional, but a Generic code has to be returned if it's known to the server or if it can be derived from the Tradename code.",
         "min": 1
       },
       {
         "id": "Immunization.vaccineCode.coding:Generic",
         "path": "Immunization.vaccineCode.coding",
         "sliceName": "Generic",
-        "comment": "Usage Notes: either Generic code or Tradename code or both have to be present.",
-        "max": 1,
+        "comment": "CA Core Usage Notes: either a Generic code or a Tradename code or both have to be present.",
+        "max": "1",
         "binding": {
           "strength": "preferred",
           "valueSet": "https://cvc.canimmunize.ca/v3/ValueSet/Generic"
@@ -72,8 +72,8 @@
         "id": "Immunization.vaccineCode.coding:Tradename",
         "path": "Immunization.vaccineCode.coding",
         "sliceName": "Tradename",
-        "comment": "Usage Notes: either Generic code or Tradename code or both have to be present.",
-        "max": 1,
+        "comment": "CA Core Usage Notes: either a Generic code or a Tradename code or both have to be present.",
+        "max": "1",
         "binding": {
           "strength": "preferred",
           "valueSet": "https://cvc.canimmunize.ca/v3/ValueSet/Tradename"
@@ -108,7 +108,7 @@
         "id": "Immunization.occurrence[x]:occurrenceDateTime",
         "path": "Immunization.occurrence[x]",
         "sliceName": "occurrenceDateTime",
-        "comment": "A combination of occurrenceDateTime, full or partial, with the 'estimated' extension to be used when an exact date is uknown known, occurrenceString is not supported. For example, if a patient recalls that she/he was immunized in June 1980, occurrenceDateTime will have a partial date '1980-06' with estimated=true, if in 2020, a 55 y.o. patient recalls that she/he was 5 y.o. at the time of immunization, occurrenceDateTime will have a partial date '1970' with estimated=true",
+        "comment": "CA Core Usage Notes: occurrenceString is not supported - a combination of occurrenceDateTime (full or partial) with the 'estimated' extension should be used when an exact date is unknown. For example, if a patient recalls that she/he was immunized in June 1980, occurrenceDateTime will have a partial date '1980-06' with 'estimated'=true. Another example: if in 2020, a 55 y.o. patient recalls that she/he was immunized at the age of 5, occurrenceDateTime will have a partial date '1970' with 'estimated'=true",
         "type": [
           {
             "code": "dateTime"
@@ -162,7 +162,7 @@
       {
         "id": "Immunization.manufacturer",
         "path": "Immunization.manufacturer",
-        "comment": "This is a reference to an organization that manufactures the vaccine. If there is a need to convey an authorised marketer of the vaccine, a new extension should be created and used.",
+        "comment": "CA Core Usage Notes: This is a reference to an organization that manufactures the vaccine. TBD: if there is a need to refernce a 'DPD Company', a new extension should be created and used. A 'DPD Company' name, as used in the Health Canada DPF, indicates the organisation (company) that holds the authorization to place the product on the market in Canada. This may not be the company that has manufactured the product, but it is the company that holds the legal responsibility for the use of the product in Canada and should be the same as the company named on the product label/packaging.",
         "type": [
           {
             "code": "Reference",
